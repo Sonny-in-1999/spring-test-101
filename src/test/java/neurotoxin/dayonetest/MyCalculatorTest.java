@@ -1,13 +1,14 @@
 package neurotoxin.dayonetest;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+//@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class MyCalculatorTest {
 
     @Test
+    @DisplayName("계산기 덧셈 테스트")
     void addTest() {
         // AAA Pattern
 
@@ -22,6 +23,7 @@ class MyCalculatorTest {
     }
 
     @Test
+    @DisplayName("계산기 뺄셈 테스트")
     void minusTest() {
         // GWT Pattern
 
@@ -38,6 +40,7 @@ class MyCalculatorTest {
     }
 
     @Test
+    @DisplayName("계산기 곱셈 테스트")
     void multiplyTest() {
         MyCalculator myCalculator = new MyCalculator(10.0);
 
@@ -47,6 +50,7 @@ class MyCalculatorTest {
     }
 
     @Test
+    @DisplayName("계산기 나눗셈 테스트")
     void divideTest() {
         MyCalculator myCalculator = new MyCalculator(5.0);
         myCalculator.divide(2.0);
@@ -55,6 +59,7 @@ class MyCalculatorTest {
     }
 
     @Test
+    @DisplayName("메서드 체이닝을 활용하여 순차적인 복합 연산 테스트")
     void complicatedCalculateTest() {
         // given
         MyCalculator myCalculator = new MyCalculator();
@@ -71,13 +76,12 @@ class MyCalculatorTest {
     }
 
     @Test
+    @DisplayName("0으로 나눌 경우 ZeroDivisionException을 던지는지 테스트")
     void devideZeroTest() {
         // given
         MyCalculator myCalculator = new MyCalculator(10.0);
 
         // when & then
-        Assertions.assertThrows(MyCalculator.ZeroDivisionException.class, () -> {
-            myCalculator.divide(0.0);
-        });
+        Assertions.assertThrows(MyCalculator.ZeroDivisionException.class, () -> myCalculator.divide(0.0));
     }
 }
