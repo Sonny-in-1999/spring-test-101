@@ -12,6 +12,8 @@ public class MyCalculator {
         this.result = initResult;
     }
 
+    // Method Chaining을 위해 각 메서드들이 this를 반환
+
     public MyCalculator add(Double number) {
         this.result += number;
         return this;
